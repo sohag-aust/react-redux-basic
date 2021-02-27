@@ -4,10 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// redux wrapper start
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import rootReducer from './services/reducers/rootReducer';
+
+const store = createStore(rootReducer);
+console.warn('Store Data : ', store);
+// redux wrapper end
+
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
